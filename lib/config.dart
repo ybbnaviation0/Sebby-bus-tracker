@@ -1,27 +1,15 @@
 class Config {
-  // Paste the official South East Queensland static GTFS zip URL.
-  static const staticGtfsUrl = 'REPLACE_ME_STATIC_GTFS_ZIP_URL';
+  // Leave this exactly as is (this is the timetable ZIP)
+  static const staticGtfsUrl = 'https://translink.com.au/sites/default/files/assets/resources/SEQ_GTFS.zip';
 
-  // Paste the official GTFS-Realtime endpoints.
-  static const vehiclePositionsUrl = 'REPLACE_ME_VEHICLE_POSITIONS_URL';
-  static const tripUpdatesUrl = 'REPLACE_ME_TRIP_UPDATES_URL';
+  // Leave this exactly as is (this is the map)
+  static const vehiclePositionsUrl = 'https://gtfsrt.api.translink.com.au/api/realtime/SEQ/VehiclePositions';
+  
+  // Leave this exactly as is (this is the arrivals)
+  static const tripUpdatesUrl = 'https://gtfsrt.api.translink.com.au/api/realtime/SEQ/TripUpdates';
 
-  // API key, if the portal requires one.
-  static const apiKey = '';
-  // Set to e.g. 'apikey' if the portal wants a header instead of ?api_key=
+  // ONLY CHANGE THIS LINE with your API key
+  static const apiKey = 'YOUR_API_KEY_HERE';
+  
+  // Leave this exactly as is
   static const apiKeyHeader = '';
-
-  static Map<String, String> get headers => {
-        'Accept': 'application/x-protobuf',
-        if (apiKeyHeader.isNotEmpty && apiKey.isNotEmpty) apiKeyHeader: apiKey,
-      };
-
-  static Uri withKey(String url) {
-    final u = Uri.parse(url);
-    if (apiKey.isEmpty || apiKeyHeader.isNotEmpty) return u;
-    return u.replace(queryParameters: {...u.queryParameters, 'api_key': apiKey});
-  }
-
-  static const attribution =
-      'Transit data © TransLink / Queensland Government. Unofficial app.';
-}
