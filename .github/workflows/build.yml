@@ -42,7 +42,7 @@ jobs:
           mkdir -p lib/gen
           dart pub global activate protoc_plugin
           export PATH="$PATH:$HOME/.pub-cache/bin"
-          protoc --dart_out=lib/gen proto/gtfs-realtime.proto
+          protoc -I proto --dart_out=lib/gen proto/gtfs-realtime.proto
 
       - name: Add INTERNET permission
         run: |
