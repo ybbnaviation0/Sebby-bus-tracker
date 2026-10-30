@@ -1,1 +1,10 @@
-
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+lib/gen/
+android/
+*.iml
+.idea/
+.vscode/
