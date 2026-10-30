@@ -29,7 +29,7 @@ class GtfsRtService {
             : (v.hasVehicleId() ? v.vehicleId : null),
         v.position.latitude.toDouble(),
         v.position.longitude.toDouble(),
-        v.hasBearing() ? v.position.bearing.toDouble() : null,
+        v.position.hasBearing() ? v.position.bearing.toDouble() : null,
       ));
     }
     return out;
