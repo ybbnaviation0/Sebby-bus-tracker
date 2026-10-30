@@ -40,7 +40,7 @@ jobs:
       - name: Generate protobuf Dart
         run: |
           mkdir -p lib/gen
-          dart pub global activate protoc_plugin
+          dart pub global activate protoc_plugin 21.1.2
           export PATH="$PATH:$HOME/.pub-cache/bin"
           protoc -I proto --dart_out=lib/gen proto/gtfs-realtime.proto
 
